@@ -14,12 +14,21 @@ import {
   okxWallet,
   walletConnectWallet,
   phantomWallet,
+  binanceWallet,
+  trustWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 
 const wallets: WalletList = [
   {
     groupName: "Wallets",
-    wallets: [metaMaskWallet, phantomWallet, walletConnectWallet, okxWallet],
+    wallets: [
+      metaMaskWallet,
+      phantomWallet,
+      walletConnectWallet,
+      okxWallet,
+      binanceWallet,
+      trustWallet,
+    ],
   },
 ];
 const chains = [
