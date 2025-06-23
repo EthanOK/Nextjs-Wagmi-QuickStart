@@ -17,7 +17,7 @@ export default function Provider({ children }: ProviderProps) {
       <WagmiProvider config={wagmiConfig}>
         <RainbowKitProvider
           theme={lightTheme()}
-          modalSize="compact"
+          // modalSize="compact"
           initialChain={defaultNetwork}
         >
           {children}

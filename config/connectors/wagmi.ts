@@ -1,15 +1,36 @@
 import { getDefaultConfig, WalletList } from "@rainbow-me/rainbowkit";
 import { http } from "wagmi";
-import { mainnet, sepolia } from "wagmi/chains";
-import { metaMaskWallet, okxWallet } from "@rainbow-me/rainbowkit/wallets";
+import {
+  base,
+  baseSepolia,
+  bsc,
+  bscTestnet,
+  hoodi,
+  mainnet,
+  sepolia,
+} from "wagmi/chains";
+import {
+  metaMaskWallet,
+  okxWallet,
+  walletConnectWallet,
+  phantomWallet,
+} from "@rainbow-me/rainbowkit/wallets";
 
 const wallets: WalletList = [
   {
     groupName: "Wallets",
-    wallets: [okxWallet, metaMaskWallet],
+    wallets: [metaMaskWallet, phantomWallet, walletConnectWallet, okxWallet],
   },
 ];
-const chains = [mainnet, sepolia] as const;
+const chains = [
+  mainnet,
+  sepolia,
+  hoodi,
+  base,
+  baseSepolia,
+  bsc,
+  bscTestnet,
+] as const;
 
 const metadata = {
   name: "Nextjs Wagmi Quickstart",
@@ -22,6 +43,11 @@ const config = getDefaultConfig({
   transports: {
     [chains[0].id]: http(),
     [chains[1].id]: http(),
+    [chains[2].id]: http(),
+    [chains[3].id]: http(),
+    [chains[4].id]: http(),
+    [chains[5].id]: http(),
+    [chains[6].id]: http(),
   },
   ssr: true,
   wallets,
